@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.cookcraze">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activity.FinishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.InstructionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.IngredientsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CreateRecipeStep3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CreateRecipeStep2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CreateRecipeStep1Activity"
+            android:exported="false" />
+        <activity android:name=".Activity.MyRecipeActivity" />
+        <activity
+            android:name=".Activity.AuthActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+<activity
+            android:name=".Activity.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CookCraze">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity android:name=".Activity.MainActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CookCraze</string>
+    <string name="app_logo">App Logo</string>
+    <string name="app_tagline">Share Your Best Recipes</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up_prompt">Do not have an account? Sign Up</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="default_web_client_id">262596538304-7a85aveddnlhu47comn127krangfuv4o.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

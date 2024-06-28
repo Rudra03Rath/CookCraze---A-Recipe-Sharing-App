@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "262596538304",
+    "firebase_url": "https://cookcraze-76c7c-default-rtdb.firebaseio.com",
+    "project_id": "cookcraze-76c7c",
+    "storage_bucket": "cookcraze-76c7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262596538304:android:f4569b53ea71023491a225",
+        "android_client_info": {
+          "package_name": "com.example.cookcraze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "262596538304-7a85aveddnlhu47comn127krangfuv4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxezGrnYlcg88ahKw5R8KzAPb7DN_zC8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "262596538304-7a85aveddnlhu47comn127krangfuv4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
