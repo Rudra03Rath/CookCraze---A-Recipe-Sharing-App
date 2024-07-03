@@ -6,23 +6,29 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.example.cookcraze.R
 import com.example.cookcraze.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var auth: FirebaseAuth
+    private lateinit var user: FirebaseUser
     private lateinit var recipeAdapter: RecipeAdapter
     private val recipes = mutableListOf<Recipe>()
 
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        user = auth.currentUser!!
 
         setSupportActionBar(binding.toolbar)
 
@@ -49,6 +56,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         recipeAdapter = RecipeAdapter(this, recipes)
         binding.recyclerViewRecipes.adapter = recipeAdapter
 
+        val headerView = binding.navView.getHeaderView(0)
+        val navUsername = headerView.findViewById<TextView>(R.id.navUsername)
+        val navProfilePicture = headerView.findViewById<ImageView>(R.id.navProfilePicture)
+
+        val displayName = user.displayName ?: user.email?.split("@")?.get(0)
+        navUsername.text = " Hi $displayName!"
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("profile_pictures/${user.uid}")
+        storageRef.downloadUrl.addOnSuccessListener { uri ->
+            Glide.with(this).load(uri).into(navProfilePicture)
+        }.addOnFailureListener {
+            navProfilePicture.setImageResource(R.drawable.ic_app_logo)
+        }
+
         fetchAllRecipes()
     }
 
@@ -59,10 +80,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.nav_liked_recipes -> {
-                // Handle Liked Recipes action
+                val intent = Intent(this, FavouriteRecipeActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_downloaded_recipes -> {
                 // Handle Downloaded Recipes action
+            }
+            R.id.nav_profile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_logout -> {
                 AlertDialog.Builder(this)
@@ -116,5 +142,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Log.e("MainActivity", "Error fetching recipes", e)
             }
     }
-
 }

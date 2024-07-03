@@ -34,15 +34,17 @@ class CreateRecipeStep2Activity : AppCompatActivity() {
         }
 
         binding.addIngredientButton.setOnClickListener {
-            addIngredientField()
+            addIngredientField(binding.ingredientEditText.text.toString().trim())
+            binding.ingredientEditText.text.clear()
         }
 
         binding.nextButton.setOnClickListener {
             updateIngredientsList()
+            val ingredientsList = ArrayList(ingredientViews.map { it.text.toString().trim() }.filter { it.isNotEmpty() })
             val intent = Intent(this, CreateRecipeStep3Activity::class.java).apply {
                 putExtra("title", title)
                 putExtra("thumbnailUrl", thumbnailUrl)
-                putStringArrayListExtra("ingredients", ArrayList(ingredientViews.map { it.text.toString() }))
+                putStringArrayListExtra("ingredients", ingredientsList)
             }
             startActivity(intent)
         }
@@ -53,11 +55,13 @@ class CreateRecipeStep2Activity : AppCompatActivity() {
     }
 
     private fun addIngredientField(ingredient: String = "") {
-        val newIngredientView = EditText(this)
-        newIngredientView.layoutParams = binding.ingredientEditText.layoutParams
-        newIngredientView.setText(ingredient)
-        binding.ingredientsContainer.addView(newIngredientView)
-        ingredientViews.add(newIngredientView)
+        if (ingredient.isNotEmpty()) {
+            val newIngredientView = EditText(this)
+            newIngredientView.layoutParams = binding.ingredientEditText.layoutParams
+            newIngredientView.setText(ingredient)
+            binding.ingredientsContainer.addView(newIngredientView)
+            ingredientViews.add(newIngredientView)
+        }
     }
 
     private fun updateIngredientsList() {

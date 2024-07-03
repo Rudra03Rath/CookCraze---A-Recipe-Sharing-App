@@ -8,5 +8,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#808080</color>
-    <color name="primaryColor">#FF5722</color>
+
+    <color name="primaryColor">#C13306</color>
+    <color name="primaryDarkColor">#FFE03B07</color>
+    <color name="onPrimaryColor">#FFFFFF</color>
+    <color name="secondaryColor">#03DAC5</color>
+    <color name="secondaryDarkColor">#018786</color>
+    <color name="onSecondaryColor">#000000</color>
+
+    <color name="primaryColorDark">#BB86FC</color>
+    <color name="primaryDarkColorDark">#3700B3</color>
+    <color name="onPrimaryColorDark">#000000</color>
+    <color name="secondaryColorDark">#03DAC5</color>
+    <color name="secondaryDarkColorDark">#03DAC5</color>
+    <color name="onSecondaryColorDark">#000000</color>
 </resources>

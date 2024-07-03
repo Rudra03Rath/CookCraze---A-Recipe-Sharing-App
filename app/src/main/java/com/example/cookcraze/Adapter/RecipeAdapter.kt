@@ -27,10 +27,10 @@ class RecipeAdapter(private val context: Context, private val recipes: List<Reci
     inner class RecipeViewHolder(private val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(recipe: Recipe) {
             binding.titleTextView.text = recipe.title
-            Log.d("RecipeAdapter", "Loading image URL: ${recipe.thumbnailUrl}") // Add this line for logging
+            Log.d("RecipeAdapter", "Loading image URL: ${recipe.thumbnailUrl}")
             Glide.with(context)
                 .load(recipe.thumbnailUrl)
-                .placeholder(R.drawable.ic_app_logo) // Optional: add a placeholder image
+                .placeholder(R.drawable.ic_app_logo)
                 .into(binding.recipeImageView)
 
             binding.titleTextView.setOnClickListener {

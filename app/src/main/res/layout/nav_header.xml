@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorPrimaryDark"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/nav_header_image"
-        android:layout_width="146dp"
-        android:layout_height="146dp"
+        android:id="@+id/navProfilePicture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="Profile Picture"
+        android:src="@drawable/ic_app_logo"
         android:layout_gravity="center"
-        android:src="@drawable/ic_app_logo" />
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        android:background="@color/white" />
 
     <TextView
-        android:id="@+id/nav_header_title"
+        android:id="@+id/navUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:text="Hi, Rudra"
-        android:textStyle="italic"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        tools:ignore="HardcodedText"/>
 </LinearLayout>
