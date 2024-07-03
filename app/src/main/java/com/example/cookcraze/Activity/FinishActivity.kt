@@ -43,7 +43,7 @@ class FinishActivity : AppCompatActivity() {
         }
 
         btnDownload.setOnClickListener {
-            // TODO: Implement download functionality
+            // TODO
         }
         btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

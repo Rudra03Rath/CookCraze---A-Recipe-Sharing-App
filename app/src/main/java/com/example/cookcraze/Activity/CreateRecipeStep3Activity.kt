@@ -35,7 +35,6 @@ class CreateRecipeStep3Activity : AppCompatActivity() {
         val thumbnailUrl = intent.getStringExtra("thumbnailUrl")
         val ingredients = intent.getStringArrayListExtra("ingredients")
 
-        // Log the received values
         Log.d("CreateRecipeStep3", "Title: $title")
         Log.d("CreateRecipeStep3", "Thumbnail URL: $thumbnailUrl")
         Log.d("CreateRecipeStep3", "Ingredients: $ingredients")

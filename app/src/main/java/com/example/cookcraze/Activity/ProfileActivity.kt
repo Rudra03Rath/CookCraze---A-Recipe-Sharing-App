@@ -49,7 +49,6 @@ class ProfileActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
 
-        // Load user information
         loadUserProfile()
 
         changeProfilePictureButton.setOnClickListener {
@@ -118,11 +117,11 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Save username change
+
         val newUsername = usernameEditText.text.toString()
         val database = FirebaseDatabase.getInstance().reference.child("users").child(user.uid)
         database.child("username").setValue(newUsername)
-        // Optionally, update the user's profile in Firebase Auth
+
         val profileUpdates = userProfileChangeRequest {
             displayName = newUsername
         }

@@ -20,11 +20,10 @@ class CreateRecipeStep2Activity : AppCompatActivity() {
         val title = intent.getStringExtra("title")
         val thumbnailUrl = intent.getStringExtra("thumbnailUrl")
 
-        // Log the received values
         Log.d("CreateRecipeStep2", "Title: $title")
         Log.d("CreateRecipeStep2", "Thumbnail URL: $thumbnailUrl")
 
-        // Restore ingredients if available
+
         if (savedInstanceState != null) {
             savedInstanceState.getStringArrayList("ingredients")?.let {
                 for (ingredient in it) {

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.CookCraze" parent="android:Theme.Material.NoActionBar">
-        <!-- Customize your dark theme here -->
+
         <item name="colorPrimary">@color/primaryColorDark</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColorDark</item>
         <item name="colorOnPrimary">@color/onPrimaryColorDark</item>
         <item name="colorSecondary">@color/secondaryColorDark</item>
         <item name="colorSecondaryVariant">@color/secondaryDarkColorDark</item>
         <item name="colorOnSecondary">@color/onSecondaryColorDark</item>
-        <!-- Add other theme attributes here -->
     </style>
 </resources>
